@@ -7,7 +7,7 @@ int main() {
     scanf("%d %d", &time, &delta);
 
     int minutes_from_0 = str_to_minutes(time) + delta;
-    printf("%d%d", minutes_from_0/60, minutes_from_0%60);
+    printf("%d%02d", minutes_from_0/60, minutes_from_0%60);
 
 }
 
