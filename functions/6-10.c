@@ -27,5 +27,5 @@ void Print_Factorial(const int N) {
     for(n=N-1;n>1;n--) {
         res *= n;
     }
-    printf("%f\n", res);
+    printf("%Lf\n", res);
 }
