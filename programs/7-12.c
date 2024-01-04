@@ -15,7 +15,7 @@ int main() {
     } else if (op == '/') {
         res = op1 / op2;
     } else if (op == '%') {
-        res = op1<0 ? -1 * op1 % op2 : op1 % op2;
+        res = op1 % op2;
     } else {
         printf("ERROR\n");
         return 0;
