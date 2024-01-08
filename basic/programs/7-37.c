@@ -9,7 +9,7 @@ typedef struct Stack {
 
 void push(Stack *s, int element) {
     // 栈满
-    if (s->top > MAX_SIZE - 1) return;
+    if (s->top > MAX_SIZE - 1) return;  
     s->data[s->top++] = element;
 }
 
@@ -32,10 +32,19 @@ int main() {
 
     Stack s;
     s.top = 0;
+      
 
     int i, j;
     // 第一个数不能大于N/2
     while (i <= N/2) {
+ 
+    }
+}
+
+void Decompose(int n, int min) {
+    int i;
+    if (min > n / 2) return;
+    for (i=min; i<=n/2; i++) {
 
     }
 }
