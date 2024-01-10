@@ -13,7 +13,20 @@ int main() {
     } while (getchar() != '\n' && count < 2000);
 
     int i;
-    for (i=0;i<count;i++) printf("%d\n", numbers[i]);
+    // for (i=0;i<count;i++) printf("%d\n", numbers[i]);
 
-    
+    int coefficient;
+    int non_zero = 0;
+    for (i=0;i<count-1;i+=2) {
+        coefficient = numbers[i] * numbers[i+1];
+        if (coefficient) {
+            non_zero = 1;
+            printf("%d ", coefficient);
+            printf("%d", numbers[i+1] == 0 ? 0 : numbers[i+1] - 1);
+            if (i!=count-2) printf(" ");
+        }
+    }
+
+    // 导数为零
+    if (!non_zero) printf("0 0");
 }
