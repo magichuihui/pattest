@@ -24,15 +24,15 @@ int pass(char *str) {
     // printf("%s\n", str);
 
     // P T 的位置
-    int p = 0, t = 0;
+    int p = -1, t = -1;
     for (i=0;i<length;i++) {
         if (str[i] != 'P' && str[i] != 'A' && str[i] != 'T') return 0;
         if (str[i] == 'P') {
-            if (p!=0) return 0;
+            if (p!=-1) return 0;
             p = i;
         }
         if (str[i] == 'T') {
-            if (t!=0) return 0;
+            if (t!=-1) return 0;
             t = i;
         }
     }
@@ -40,10 +40,8 @@ int pass(char *str) {
     // P T中间没有字符A  或者T在P前面
     if (t-p < 2) return 0;
 
-    // 对于aPbATca，尾部的A个数要不少于头部
-    //if (t - p > 2) {
-        if (p + p * (t-p-2) != length - 1 -t) return 0;
-    //}
+    // 对于aPbATca，尾部的A个数要等于 头部 * (t-p-1)
+    if (p * (t-p-1) != length - 1 - t) return 0;
 
     return 1;
 }
