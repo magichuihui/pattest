@@ -17,13 +17,15 @@ int main() {
 
     int coefficient;
     int non_zero = 0;
+    int first=1;
     for (i=0;i<count-1;i+=2) {
         coefficient = numbers[i] * numbers[i+1];
         if (coefficient) {
             non_zero = 1;
-            printf("%d ", coefficient);
-            printf("%d", numbers[i+1] == 0 ? 0 : numbers[i+1] - 1);
-            if (i!=count-2) printf(" ");
+            if (!first) printf(" ");
+            printf("%d", coefficient);
+            printf(" %d", numbers[i+1] == 0 ? 0 : numbers[i+1] - 1);
+            first = 0;
         }
     }
 
