@@ -88,12 +88,12 @@ rational product(rational x, rational y) {
     if (y.a == 0) return y;
 
     rational res = {0};
-    // long long g1 = gcd(x.a, y.b);
-    // long long g2 = gcd(y.a, x.b);
-    // res.a = (x.a/g1) * (y.a/g2);
-    // res.b = (x.b/g1) * (y.b/g2);
-    res.a = x.a * y.a;
-    res.b = x.b * y.b;
+    long long g1 = gcd(x.a, y.b);
+    long long g2 = gcd(y.a, x.b);
+    res.a = (x.a/g1) * (y.a/g2);
+    res.b = (x.b/g2) * (y.b/g1);
+    // res.a = x.a * y.a;
+    // res.b = x.b * y.b;
 
     return simply(res);
 }
