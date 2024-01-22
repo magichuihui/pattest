@@ -95,19 +95,12 @@ void generate_set(wchar_t str[], symbol_set *s) {
     int i,j=-1,k=-1;
     s->length=0;
 
-    for (i=0;i<wcslen(str);i++) {
-        // 符号集开始
-        if (str[i] == '[' && k == -1) {
-            j++;
-            k=0;
-        // 符号集结束
-        } else if (str[i] == ']' && k > -1) {
-            s->symbols[j][k] = 0;
+    for (i=0;i<wcslen(str);) {
+        // 符号集开始 
+        if (str[i++] == '[') {
+            j=0;
+            while (i<wcslen(str) && str[i] != ']') s->symbols[s->length][j++] = str[i++];
             s->length++;
-            k = -1;
-        // 字符属于符号集 j
-        } else if (k > -1) {
-            s->symbols[j][k++] = str[i];
         }
     }
 }
