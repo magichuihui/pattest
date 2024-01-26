@@ -42,6 +42,6 @@ int main(void) {
             first=0;
         }
     }
-    printf("\n");
+    if (!first) printf("\n");
 
 }
