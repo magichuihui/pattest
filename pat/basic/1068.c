@@ -54,6 +54,7 @@ int main(void) {
         }
     }
 
+    // x y 搞颠倒了
     if (count==1) {
         printf("(%d, %d): %d\n", head->next->y, head->next->x, head->next->color);
     } else if (count==0) {
