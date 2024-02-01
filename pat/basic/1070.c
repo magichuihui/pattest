@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int compare(const void * a, const void * b);
 
@@ -13,7 +14,13 @@ int main(void) {
 
     qsort(rope, N, sizeof(int), compare);
 
-    for (i=0;i<N;i++) printf("%d\n", rope[i]);
+    double length=rope[0] / pow(2.0, N-1);
+
+    for (i=1;i<N;i++) {
+        length += rope[i] / pow(2.0, N-i);
+    }
+
+    printf("%d\n", (int) floor(length));
 }
 
 int compare(const void * a, const void * b) {
